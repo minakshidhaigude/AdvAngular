@@ -1,0 +1,64 @@
+<div>
+  <app-practice></app-practice>
+</div>
+<!-- <div>
+  <app-higher-order-mapping></app-higher-order-mapping>
+</div> -->
+<p>
+  Country
+  <select (change)="OnCountrySelected($event)">
+    <option value="">All Cities</option>
+    <option
+      [value]="country.id"
+      *ngFor="let country of countriesStream | async"
+    >
+      {{ country.country }}
+    </option>
+  </select>
+</p>
+<ol>
+  <li *ngFor="let city of filteredcities | async">
+    {{ city.city }}
+  </li>
+</ol>
+<!-- <div>
+  <app-observable></app-observable>
+  <app-subject></app-subject>
+  <app-behavior-subject></app-behavior-subject>
+  <app-replay-subject></app-replay-subject>
+</div> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <button (click)="subscribe()">Subscribe</button>&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-2">
+      <button (click)="GetData()">Subscribe to GetData()</button
+      >&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-2">
+      <button (click)="UnsubscribeGetData()">UnSubscribe from GetData()</button
+      >&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-2">
+      <button (click)="GetMoreData()">Subscribe to GetMoreData()</button
+      >&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-2">
+      <button (click)="SimulateError()">Subscribe to SimulateError()</button
+      >&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-2">
+      <button (click)="OfObservable()">of Observable</button>&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+</div>
+<br />
+<button (click)="FromObservable()">From Observable</button>&nbsp;&nbsp;&nbsp;
+<button (click)="FromInterval()">From Interval</button>&nbsp;&nbsp;&nbsp;
+<button (click)="UnsubscribeFromInterval()">Unsubscribe From Interval</button
+>&nbsp;&nbsp;&nbsp;
+<br />
+<button (click)="GetLocations()">Get Locations</button>&nbsp;&nbsp;&nbsp;
+<button (click)="GetLocationsUpeer()">Get Locations In Uppercase</button
+>&nbsp;&nbsp;&nbsp;
